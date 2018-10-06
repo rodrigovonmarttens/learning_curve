@@ -1,0 +1,3 @@
+Output directory:
+
+The main script "learning_curve.py" produces ...
