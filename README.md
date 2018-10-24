@@ -47,6 +47,6 @@ with the comment "# delta" in the end.
 I acknowledge Valerio Marra for valuble contributions and useful 
 discussions.
 
-Rodrigo von Marttens - rodrigovonmarttens@gmail.com
-Postdoc researcher
+Rodrigo von Marttens - rodrigovonmarttens@gmail.com \\
+Postdoc researcher \\
 University of Geneva
