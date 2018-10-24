@@ -48,7 +48,7 @@ plt.ylim(0, 1.2)
 plt.xlabel(r'Training set size')
 plt.errorbar(x_plot, lc_train_mean, yerr = lc_train_std, color = 'red', label=r'Training set)')
 plt.errorbar(x_plot, lc_val_mean, yerr = lc_val_std, color = 'blue', label=r'Validation set)')
-plt.errorbar(x_plot, lc_delta_mean, yerr = lc_delta_std, color = 'green', label=r'$\delta$Validation set)')
+plt.errorbar(x_plot, lc_delta_mean, yerr = lc_delta_std, color = 'green', label=r'$\delta$Validation set)') # delta
 plt.plot(x_plot, x_plot / x_plot, color = 'black', linestyle = ':')
 
 leg=plt.legend(loc='best',fancybox=True)
