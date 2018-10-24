@@ -31,6 +31,10 @@ available scripts are the following:
 
 	See the file example_ini.txt as an example.
 	
+	In order to compute the learning curve with this script and the 
+	auxiliary file, run in terminal the following command
+	"python learning_curve_linear.py < auxiliary_file.txt"
+	
 	-> plot.py: script for plotting the learning curves from the output 
 	files obtained using the script "learning_curve.py". Note that if 
 	you have used the script in parallel you must merge all the output 
