@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Script to compute the (delta) learning curve for a given data set.
+Script to compute the (calibrated) learning curve for a given data set.
 """
 
 import numpy as np
@@ -128,7 +128,7 @@ def learnig_curve(x_data, y_data, yerr_data, covmat_stat, covmat_sys):
 ########################################################################
 # output files
 output = learnig_curve(x, y, yerr, cov_stat, cov_sys)
-np.savetxt('lc_train__'+str(rank)+'.dat', output[0])
-np.savetxt('lc_val__'+str(rank)+'.dat', output[1])
-np.savetxt('lc_delta__'+str(rank)+'.dat', output[2]) # delta
+np.savetxt('./output/lc_train__'+str(rank)+'.dat', output[0])
+np.savetxt('./output/lc_val__'+str(rank)+'.dat', output[1])
+np.savetxt('./output/lc_delta__'+str(rank)+'.dat', output[2])           # delta
 
