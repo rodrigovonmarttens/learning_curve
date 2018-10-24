@@ -124,7 +124,7 @@ def learnig_curve(x_data, y_data, yerr_data, covmat_stat, covmat_sys):
     lc_delta = lc_delta / val_size                                      # delta
     print(lc_train, lc_val)
     return(lc_train, lc_val, lc_delta)                                  # delta
-    #return(lc_train, lc_val)                                       
+    #return(lc_train, lc_val) # in the case you are not computing the calibrated learning curve uncomment this line                                     
 ########################################################################
 # output files
 output = learnig_curve(x, y, yerr, cov_stat, cov_sys)
