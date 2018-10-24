@@ -43,3 +43,10 @@ available scripts are the following:
 In learning_curve.py and learning_curve_linear.py if you don't want to 
 compute the calibrated learning curves you must to comment the lines 
 with the comment "# delta" in the end. 
+
+I acknowledge Valerio Marra for valuble contributions and useful 
+discussions.
+
+Rodrigo von Marttens - rodrigovonmarttens@gmail.com
+Postdoc researcher
+University of Geneva
