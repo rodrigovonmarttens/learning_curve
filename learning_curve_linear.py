@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-rank = MPI.COMM_WORLD.Get_rank()
 ########################################################################
 # plot configurations
 dirFile = os.path.dirname(os.path.join('.','learning_curve_linear.py'))
@@ -21,7 +20,7 @@ file_data = input('Enter the data file: ')
 print("\n"+ file_data)
 file_sys = input('Enter the systematic covariance matrix: ')
 print("\n"+ file_sys)
-base = input('Enter the base functions (linear, log or inverse): ')
+base = input('Enter the base functions (polynomial, log or inverse): ')
 print("\n"+ base)
 alpha_max = input('Enter the order of the reconstruction: ')
 print("\n"+ alpha_max)
@@ -51,7 +50,7 @@ def template(x_data, y_data, yerr_data, covmat_stat, covmat_sys, x_vec):
 	covmat = covmat_stat + covmat_sys
 	Icovmat = inv(covmat)
 	fisher = np.zeros([alpha_max + 1, alpha_max + 1])
-	if (base == "linear"):
+	if (base == "polynomial"):
 		for a in range(0, alpha_max + 1):
 			for b in range(0, alpha_max + 1):
 				fisher[a][b] = np.dot((x_data)**b, np.dot(Icovmat, (x_data)**a))
@@ -68,10 +67,10 @@ def template(x_data, y_data, yerr_data, covmat_stat, covmat_sys, x_vec):
 			for b in range(0, alpha_max + 1):
 				fisher[a][b] = np.dot((x_data)**(b / 2.), np.dot(Icovmat, (x_data)**(a / 2.)))
 	else:
-		sys.exit("Error message: please choose a valid base functions (linear, log or inverse.)")
+		sys.exit("Error message: please choose a valid base functions (polynomial, log or inverse.)")
 	Ifisher = inv(fisher)
 	ca = np.zeros([alpha_max+1])
-	if (base == "linear"):
+	if (base == "polynomial"):
 		for a in range(0, alpha_max + 1):
 			for b in range(0, alpha_max + 1):
 				ca[a] += np.dot(Ifisher[a][b], np.dot(y_data, np.dot(Icovmat, ((x_data)**b))))
@@ -88,7 +87,7 @@ def template(x_data, y_data, yerr_data, covmat_stat, covmat_sys, x_vec):
 			for b in range(0, alpha_max + 1):
 				ca[a] += np.dot(Ifisher[a][b], np.dot(y_data, np.dot(Icovmat, ((x_data)**(b / 2.)))))
 	t = np.zeros([len(x_vec)])
-	if (base == "linear"):
+	if (base == "polynomial"):
 		for a in range(0, alpha_max + 1):
 			t += ca[a] * (x_vec)**a
 	elif (base == "log"):
@@ -205,5 +204,5 @@ plot_one = plt.plot(np.arange(0., train_size, 1e-3), np.arange(0., train_size, 1
 leg=plt.legend(loc='best',fancybox=True)
 leg.get_frame().set_alpha(0.9)
 
-#plt.savefig('./learningcurve_'+name+'_'+base+'_order'+str(alpha_max)+'_train'+str(train_size)+'_loops'+str(loops)+'.pdf', dpi=288)
-plt.show()
+plt.savefig('./output/learningcurve_'+name+'_'+base+'_order'+str(alpha_max)+'_train'+str(train_size)+'_loops'+str(loops)+'.pdf', dpi=288)
+#plt.show()
