@@ -1,0 +1,7 @@
+cc_data.txt
+cc_sys.txt
+polynomial
+0
+20
+2000
+cc
